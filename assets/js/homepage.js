@@ -2,7 +2,7 @@ var getUserRepos = function(user) {
     var apiUrl = "https://api.github.com/users/" + user + "/repos";
     fetch(apiUrl).then(function(response){
         response.json().then(function(data){
-            console.log(data);
+            displayRepos(data, user);
         });
     });
 };
@@ -22,6 +22,11 @@ var formSubmitHandler = function(event) {
         alert("Please enter a Github username");
     }
     console.log(event);
+};
+
+var displayRepos = function(repos, searchTerm) {
+    console.log(repos);
+    console.log(searchTerm);
 };
 
 userFormEl.addEventListener("submit",formSubmitHandler);
